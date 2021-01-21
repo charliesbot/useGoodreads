@@ -41,15 +41,9 @@ const App = () => {
 ## Props
 | Prop         | Type     | Optional | Default                | Description                                                          |
 |--------------|----------|----------|------------------------|----------------------------------------------------------------------|
-| mainColor    | string   | Yes      | rgba(12, 83, 175, 0.9) | Change custom color to the media controls                            |
-| isLoading    | boolean  | Yes      | false                  | When is loading                                                      |
-| isFullScreen | boolean  | Yes      | false                  | To change icon state of fullscreen                                   |
+| userId       | string   | No       | undefined                     | Required to get the books data from the user                         |
+| shelf        | string   | Yes      | 'read'                 | Based on the default shelf from Goodreads, which are 'read', 'currently-reading' or 'to-read'                                                      |
+| customShelf  | string   | Yes      | undefined                  | Used to retrieve shelfs created by the user. This overrides the value from the 'shelf' property                                   |
 
-## Constants 
-```js
-  PLAYING,
-  PAUSED,
-  ENDED,
-```  
 ## Example
 Refer to the example folder to find an implementation of this project
