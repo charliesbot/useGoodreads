@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACE,qBACF,CAEA,KACE,wBACF","file":"example.e585f556.css","sourceRoot":"..","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\nbody {\n  background-color: #fdffb6;\n}\n"]}
