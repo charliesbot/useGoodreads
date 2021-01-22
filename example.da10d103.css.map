@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,EACE,qBACF,CAEA,MACE,QAAS,CACT,YACF,CAEA,KACE,wBACF","file":"example.da10d103.css","sourceRoot":"..","sourcesContent":["* {\n  box-sizing: border-box;\n}\n\n#root {\n  margin: 0;\n  padding: 20px;\n}\n\nbody {\n  background-color: #fdffb6;\n}\n"]}
