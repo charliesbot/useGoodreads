@@ -122,6 +122,7 @@ const Input = styled.input`
 const App = () => {
   const [shelf, setShelf] = useState<GoodreadsShelf>('currently-reading');
   const [userId, setUserId] = useState('51327323-carlos-l-pez');
+  const [tempUserId, setTempUserId] = useState(userId);
 
   const { fetchBooks, loading, data } = useGoodreads({
     userId,
@@ -138,11 +139,18 @@ const App = () => {
         <Input
           placeholder="Your Goodreads id"
           type="search"
-          value={userId}
-          onChange={e => setUserId(e.target.value)}
+          value={tempUserId}
+          onChange={e => setTempUserId(e.target.value)}
         />
 
-        <SearchButton onClick={fetchBooks}>Search</SearchButton>
+        <SearchButton
+          onClick={() => {
+            setUserId(tempUserId);
+            fetchBooks();
+          }}
+        >
+          Search
+        </SearchButton>
       </SearchBar>
 
       <Container>
