@@ -17,10 +17,16 @@ jobs:
           npm install
           npm run-script build
 
+      - name: Install and Build Example 🔧
+        run: |
+          cd example
+          npm i
+          npm run-script build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: example/dist
 
