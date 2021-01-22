@@ -30,6 +30,7 @@ const BookCard = styled.li`
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
   margin: 20px 0;
   button + button {
     margin-left: 8px;
@@ -90,11 +91,40 @@ const BookTitle = styled.span`
   font-family: monospace;
 `;
 
+const SearchBar = styled.div`
+  display: flex;
+`;
+
+const SearchButton = styled(Button)`
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #a0c4ff;
+  color: #141a23ad;
+  font-weight: bold;
+
+  &:hover {
+    transform: scale(1);
+  }
+`;
+
+const Input = styled.input`
+  border: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 8px 16px;
+  outline: none;
+  box-shadow: 0px 2px 7px 2px rgba(131, 131, 131, 0.4);
+  &:focus {
+    border: none;
+  }
+`;
+
 const App = () => {
   const [shelf, setShelf] = useState<GoodreadsShelf>('currently-reading');
+  const [userId, setUserId] = useState('51327323-carlos-l-pez');
 
   const { fetchBooks, loading, data } = useGoodreads({
-    userId: '51327323-carlos-l-pez',
+    userId,
     shelf,
   });
 
@@ -104,6 +134,17 @@ const App = () => {
 
   return (
     <Page>
+      <SearchBar>
+        <Input
+          placeholder="Your Goodreads id"
+          type="search"
+          value={userId}
+          onChange={e => setUserId(e.target.value)}
+        />
+
+        <SearchButton onClick={fetchBooks}>Search</SearchButton>
+      </SearchBar>
+
       <Container>
         {Options.map(o => (
           <Button

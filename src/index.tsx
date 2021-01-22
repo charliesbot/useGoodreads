@@ -16,7 +16,9 @@ type Book = {
 };
 
 type Cache = {
-  [key: string]: Book[];
+  [userId: string]: {
+    [key: string]: Book[];
+  };
 };
 
 export const useGoodreads = (props: useGoodreadsProps) => {
@@ -27,8 +29,8 @@ export const useGoodreads = (props: useGoodreadsProps) => {
   const [data, setData] = useState<Book[] | undefined>(undefined);
 
   const fetchBooks = useCallback(async () => {
-    if (cache.current[customShelf]) {
-      setData(cache.current[customShelf]);
+    if (cache.current[userId]?.[customShelf]) {
+      setData(cache.current[userId][customShelf]);
       return;
     }
 
@@ -74,10 +76,11 @@ export const useGoodreads = (props: useGoodreadsProps) => {
       };
     });
 
-    cache.current[shelf] = booksData;
+    cache.current[userId] = cache.current[userId] ?? {};
+    cache.current[userId][shelf] = booksData;
     setData(booksData);
     setIsLoading(false);
-  }, [customShelf]);
+  }, [customShelf, userId]);
 
   return { fetchBooks, data, loading };
 };
