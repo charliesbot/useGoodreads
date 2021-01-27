@@ -10,6 +10,9 @@ A react hook to get your Goodreads data. Strongly typed using Typescript.
    npm i usegoodreads
 ```
 
+## Live Example
+https://charliesbot.github.io/useGoodreads/
+
 ## Usage
 ```jsx
 // Require the module
